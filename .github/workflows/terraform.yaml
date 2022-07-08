@@ -11,6 +11,8 @@ on:
 
 jobs:
   terraform:
+    environment:
+      name: ${{ inputs.deploymentEnvironment }}
     name: Terraform
     runs-on: ubuntu-latest
     defaults:

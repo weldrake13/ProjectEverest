@@ -17,6 +17,8 @@ on:
 
 jobs:
   helm:
+    environment:
+      name: ${{ inputs.deploymentEnvironment }}
     name: 'Helm'
     runs-on: ubuntu-latest
     defaults:
