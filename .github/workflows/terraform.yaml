@@ -18,6 +18,8 @@ jobs:
       name: ${{ inputs.deploymentEnvironment }}
     name: Terraform
     runs-on: ubuntu-latest
+    env:
+      TF_WORKSPACE: ${{ inputs.terraform_project_prefix }}-${{ inputs.deploymentEnvironment }}
     defaults:
       run:
         shell: bash
@@ -33,10 +35,7 @@ jobs:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
       - name: Terraform Init
-        run: |
-          export TF_WORKSPACE=${{ inputs.terraform_project_prefix }}-${{ inputs.deploymentEnvironment }}
-          echo "workspace is $TF_WORKSPACE"
-          terraform init
+        run: terraform init
 
       - name: Terraform Validate
         id: validate
