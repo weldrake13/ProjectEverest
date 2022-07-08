@@ -3,7 +3,7 @@ terraform {
     organization = "wsp-dev-poc"
 
     workspaces {
-      name = format("ProjectEverest-%s", var.environment)
+      prefix = "ProjectEverest-"
     }
   }
 }
