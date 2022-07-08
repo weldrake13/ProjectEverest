@@ -1,10 +1,6 @@
 terraform {
   cloud {
     organization = "wsp-dev-poc"
-
-    workspaces {
-      prefix = "ProjectEverest-"
-    }
   }
 }
 
