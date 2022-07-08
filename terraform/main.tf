@@ -21,6 +21,6 @@ locals {
 }
 
 resource "vault_generic_secret" "secret1" {
-  path      = format("secrets/%s/some_secret". var.environment)
+  path      = format("secrets/%s/some_secret", var.environment)
   data_json = local.datajson
 }
