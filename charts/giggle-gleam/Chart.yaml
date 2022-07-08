@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Project Giggle Gleams Super Cool Chart
+name: project-giggle-gleam
+version: 0.0.1

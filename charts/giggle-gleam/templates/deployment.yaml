@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: giggle-gleam
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: giggle-gleam
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: giggle-gleam
+    spec:
+      containers:
+      - name: alpine
+        image: alpine
+        command: ["sh", "-c", "echo $SOME_VAR && echo going to sleep... && sleep 10000"]
+        env:
+        - name: SOME_VAR
+          value: hello-world

@@ -1,0 +1,23 @@
+name: Deployment
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  Dependencies:
+    uses: ./.github/workflows/terraform.yaml
+    with:
+      terraform_version: 1.1.7
+    secrets: inherit
+
+  Helm:
+    needs: [Dependencies]
+    uses: ./.github/workflows/helm.yaml
+    with:
+      vaultUrl: https://vault-dev-wsp-poc-public-vault-54e9fb45.2cc7f94d.z1.hashicorp.cloud:8200
+      chartPath: ./charts/giggle-gleam
+      deploymentEnvironment: dev
+      deploymentName: project-giggle-gleam
+    secrets: inherit
