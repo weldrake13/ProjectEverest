@@ -18,7 +18,7 @@ jobs:
     uses: ./.github/workflows/helm.yaml
     with:
       vaultUrl: https://vault-dev-wsp-poc-public-vault-54e9fb45.2cc7f94d.z1.hashicorp.cloud:8200
-      chartPath: ./charts/giggle-gleam
+      chartPath: ./charts/everest
       deploymentEnvironment: dev
-      deploymentName: project-giggle-gleam
+      deploymentName: project-everest
     secrets: inherit

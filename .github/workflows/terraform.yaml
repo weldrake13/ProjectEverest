@@ -37,7 +37,7 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
-        run: terraform plan -var "environment=${{ input.deploymentEnvironment }}" -out plan-${{ inputs.deploymentEnvironment }}.tfplan
+        run: terraform plan -var "environment=${{ inputs.deploymentEnvironment }}" -out plan-${{ inputs.deploymentEnvironment }}.tfplan
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
