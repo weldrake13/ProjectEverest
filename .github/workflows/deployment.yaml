@@ -23,3 +23,22 @@ jobs:
       deploymentEnvironment: dev
       deploymentName: project-everest
     secrets: inherit
+
+  Dependencies-Test:
+    needs: [Helm-Dev]
+    uses: ./.github/workflows/terraform.yaml
+    with:
+      terraform_version: 1.1.7
+      deploymentEnvironment: test
+      terraform_project_prefix: ProjectEverest
+    secrets: inherit
+
+  Helm-Test:
+    needs: [Dependencies-Test]
+    uses: ./.github/workflows/helm.yaml
+    with:
+      vaultUrl: https://vault-dev-wsp-poc-public-vault-54e9fb45.2cc7f94d.z1.hashicorp.cloud:8200
+      chartPath: ./charts/everest
+      deploymentEnvironment: test
+      deploymentName: project-everest
+    secrets: inherit
