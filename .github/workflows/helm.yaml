@@ -56,4 +56,4 @@ jobs:
 
       - name: Deploy Helm
         working-directory: ${{ inputs.chartPath }}
-        run: helm upgrade --install ${{ inputs.deploymentName }} .
+        run: helm upgrade --install ${{ inputs.deploymentName }}-${{ inputs.deploymentEnvironment }} . --namespace ${{ inputs.deploymentEnvironment }} --create-namespace

@@ -5,6 +5,9 @@ on:
       terraform_version:
         required: true
         type: string
+      deploymentEnvironment:
+        required: true
+        type: string
 
 jobs:
   terraform:
@@ -32,8 +35,8 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
-        run: terraform plan
+        run: terraform plan -var "environment=${{ input.deploymentEnvironment }}" -out plan-${{ inputs.deploymentEnvironment }}.tfplan
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-        run: terraform apply -auto-approve
+        run: terraform apply plan-${{ inputs.deploymentEnvironment }}.tfplan

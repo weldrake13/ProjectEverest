@@ -1,4 +1,4 @@
 provider "vault" {
-  address = var.vault_address
+  address   = var.vault_address
   namespace = "admin/wsp"
 }

@@ -14,3 +14,9 @@ variable "vault_address" {
   type        = string
   default     = "https://vault-dev-wsp-poc-public-vault-54e9fb45.2cc7f94d.z1.hashicorp.cloud:8200"
 }
+
+variable "environment" {
+  description = "Deployment Environment"
+  type        = string
+  default     = "dev"
+}
