@@ -1,6 +1,9 @@
 terraform {
   cloud {
     organization = "wsp-dev-poc"
+    workspaces {
+      tags = ["everest"]
+    }
   }
 }
 
