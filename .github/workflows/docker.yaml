@@ -1,0 +1,21 @@
+name: Docker Build
+on:
+  workflow_call:
+    inputs:
+      dockerfileLocation:
+        required: true
+        type: string
+
+jobs:
+  docker:
+    name: 'Docker Build'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build
+        run: echo "doing a docker build..."
