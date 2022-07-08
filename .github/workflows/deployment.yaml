@@ -11,7 +11,7 @@ jobs:
     with:
       dockerfileLocation: Dockerfile
   
- Sonar-Scan:
+  Sonar-Scan:
     uses: ./.github/workflows/sonarr.yaml
     with:
       sourceLocation: ./src
