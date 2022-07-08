@@ -71,7 +71,7 @@ jobs:
       terraform_project_prefix: ProjectEverest
     secrets: inherit
 
-  Helm-Staging:
+  Helm-Prod:
     needs: [Dependencies-Prod]
     uses: ./.github/workflows/helm.yaml
     with:
