@@ -36,7 +36,7 @@ jobs:
         run: export TF_WORKSPACE=${{ inputs.terraform_project_prefix }}-${{ inputs.deploymentEnvironment }}
 
       - name: Terraform Init
-        run: terraform init
+        run: echo "workspace is $TF_WORKSPACE" && terraform init
 
       - name: Terraform Validate
         id: validate
